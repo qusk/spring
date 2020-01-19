@@ -5,7 +5,11 @@ import java.util.ArrayList;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.yjm.demo.controller.Article;
 import com.yjm.demo.dao.ArticleDao;
+
+
 @Controller
 public class ArticleController {
 	
@@ -39,13 +43,15 @@ public class ArticleController {
 		return "article";
 		
 	}
-//	
-//	@RequestMapping("list")
-//	@ResponseBody
-//	public String list() {
-//			
-//		return list;
-//	}
-//	
+	
+	@RequestMapping("list")
+	@ResponseBody
+	public String list() {
+		
+		ArrayList<Article> list = dao.getArticles();
+		
+		return "list";
+	}
+	
 	
 }
